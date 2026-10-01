@@ -1,0 +1,172 @@
+# ============================================================
+#  LifestealPowers config
+#  After editing, run  /powers reload  in game (or restart).
+#  "level" 1 = the normal potion level, 2 = level II, etc.
+#  Times are in SECONDS. Distances are in BLOCKS.
+#  Set enabled: false to remove a power from the game
+#  (nobody will be given it and it can't be used).
+# ============================================================
+
+hearts:
+  max-hearts: 20          # most hearts anyone can reach from lifesteal
+  min-hearts: 1           # nobody can drop below this many hearts
+  hearts-per-kill: 1      # hearts stolen per player kill
+  dragon-egg-bonus: 30    # extra hearts for whoever holds the dragon egg
+
+powers:
+  # ---------------- ACTIVE (right-click the Power Core) ----------------
+  DASH:
+    enabled: true
+    cooldown: 5
+    strength: 2.2         # how hard you launch forward
+    lift: 0.4             # upward boost
+  LEAP:
+    enabled: true
+    cooldown: 5
+    height: 1.6           # upward speed
+    slow-fall-seconds: 2
+  FIREBALL:
+    enabled: true
+    cooldown: 7
+    explosion-power: 10    # 1 = small, 4 = TNT-sized
+  LIGHTNING:
+    enabled: true
+    cooldown: 15
+    range: 80
+  FREEZE:
+    enabled: true
+    cooldown: 15
+    radius: 8
+    duration: 10
+    level: 6              # slowness level
+  HEAL:
+    enabled: true
+    cooldown: 20
+    duration: 5
+    level: 10              # regeneration level
+  TELEPORT:
+    enabled: true
+    cooldown: 15
+    range: 50
+  SHOCKWAVE:
+    enabled: true
+    cooldown: 15
+    radius: 10
+    strength: 5
+  INVISIBILITY:
+    enabled: true
+    cooldown: 40
+    duration: 20
+  SPEED_BURST:
+    enabled: true
+    cooldown: 60
+    duration: 30
+    level: 10
+  STRENGTH_SURGE:
+    enabled: true
+    cooldown: 60
+    duration: 10
+    level: 5
+  SHIELD:
+    enabled: true
+    cooldown: 60
+    duration: 10
+    resistance-level: 10
+    absorption-level: 10
+  BLINDING_FLASH:
+    enabled: true
+    cooldown: 25
+    radius: 10
+    duration: 10
+  WITHER_TOUCH:
+    enabled: true
+    cooldown: 30
+    radius: 6
+    duration: 10
+    level: 6
+  VOID_PULL:
+    enabled: true
+    cooldown: 20
+    radius: 12
+    strength: 2.4
+  ARROW_STORM:
+    enabled: true
+    cooldown: 20
+    arrows: 30
+    speed: 15
+  TNT_THROW:
+    enabled: true
+    cooldown: 25
+    fuse-seconds: 1
+    speed: 10
+  SWAP:
+    enabled: true
+    cooldown: 30
+    range: 25
+
+  # ---------------- PASSIVE (always on) ----------------
+  NIGHT_EYES:
+    enabled: true
+  WATER_LORD:
+    enabled: true
+  FIRE_WALKER:
+    enabled: true
+  HASTE_MINER:
+    enabled: true
+    level: 10
+  FEATHER_FALL:
+    enabled: true
+  LUCKY_CHARM:
+    enabled: true
+    level: 100000         # potion levels above 255 are capped at 255
+
+  # ---------------- DRAGON EGG POWERS ----------------
+  # These are NOT handed out or stolen. Whoever has the dragon egg in their
+  # inventory gets them, and loses them when the egg leaves their inventory.
+  DRAGON_FLIGHT:          # passive: fly like in creative mode
+    enabled: true
+    speed: 0.1            # flying speed (0.1 = normal creative flight, max 1.0)
+  DRAGON_BREATH:          # active: shows up in the Power Core cycle (sneak + right-click)
+    enabled: true
+    cooldown: 15
+    range: 8              # how far in front of you the cloud appears
+    radius: 4             # size of the cloud
+    duration: 8           # how long the cloud lasts
+    damage: 2             # damage dealt every 0.5s to everything inside (2 = 1 heart). You are never hurt by your own cloud.
+
+# ---------------- WITHDRAWING ----------------
+# /withdrawheart [amount]  -> turns your hearts into Heart items
+# /withdrawpower <power>   -> turns one of your powers into a Power Crystal
+withdraw:
+  hearts: true
+  powers: true
+
+# ---------------- CRAFTING RECIPES ----------------
+# shape = 3 rows of 3 letters (use a space for an empty slot)
+# ingredients = what each letter means (any Minecraft item name)
+# Run /powers reload after changing these.
+recipes:
+  # Heart: right-click to gain 1 heart
+  heart:
+    enabled: true
+    shape:
+      - "DTD"
+      - "NSN"
+      - "DTD"
+    ingredients:
+      D: DIAMOND_BLOCK
+      T: TOTEM_OF_UNDYING
+      N: NETHERITE_INGOT
+      S: NETHER_STAR
+  # Power Crystal: right-click to gain a random unclaimed power
+  power-crystal:
+    enabled: true
+    shape:
+      - "DSD"
+      - "NAN"
+      - "DSD"
+    ingredients:
+      D: DIAMOND_BLOCK
+      S: NETHER_STAR
+      N: NETHERITE_INGOT
+      A: ENCHANTED_GOLDEN_APPLE

@@ -1,0 +1,14 @@
+name: LifestealPowers
+version: 1.0.0
+main: com.example.lifestealpowers.LifestealPowers
+api-version: '1.21'
+commands:
+  powers:
+    description: View or manage powers
+    usage: /powers [list|reload|give <player> <power>|reset <player>|revive <player>|item <player> heart|crystal]
+  withdrawheart:
+    description: Turn your hearts into Heart items
+    usage: /withdrawheart [amount]
+  withdrawpower:
+    description: Turn one of your powers into a Power Crystal item
+    usage: /withdrawpower <power>
